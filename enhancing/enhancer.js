@@ -14,8 +14,11 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  const repairedItem = Object.assign({},item);
+  repairedItem.durability = 100;
+  return repairedItem;
 }
+
 
 function get(item) {
   return { ...item };
