@@ -6,7 +6,9 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
+  const enhancedItem = Object.assign({}, item)
+  enhancedItem.enhancement += 1
+  return enhancedItem
 }
 
 function fail(item) {
