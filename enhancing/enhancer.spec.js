@@ -1,4 +1,4 @@
-const { repair, succeed } = require('./enhancer.js');
+const { repair, succeed, fail } = require('./enhancer.js');
 // test away!
 
 const gameItem = {
@@ -19,6 +19,12 @@ const enhancedItem = {
     enhancement: 1
 }
 
+const failEnhancegameItem = {
+    name: 'Game Item',
+    durability: 40,
+    enhancement: 0
+}
+
 describe('enhancer.js', () => {
     describe('repair()', () => {
         test('The durability of game item set to 100', () => {
@@ -28,9 +34,16 @@ describe('enhancer.js', () => {
 })
 
 describe('succeed()', () => {
-    test('happy case, enhancement from 0 to 1 of regular item', () => {
+    test('Enhancement from 0 to 1 of Game Item', () => {
         expect(succeed(gameItem)).toEqual(enhancedItem);
     })
    
+})
+
+describe('fail()', () => {
+    test('Game Item enhancement fails to be enhanced', () => {
+        expect(fail(gameItem)).toEqual(failEnhancegameItem);
+    })
+ 
 })
    
